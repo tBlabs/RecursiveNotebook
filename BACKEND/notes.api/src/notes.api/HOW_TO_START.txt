@@ -1,0 +1,64 @@
+﻿
+
+### First run ###
+
+Prepare database.
+
+(1) Build 'migration' for database
+	
+	In Package Manager Console (PMC) write "add-migration initial".
+
+(2) Update database
+
+	In PMC write "Update-Database".
+
+	Now we can see in 'SQL Server Object Explorer' in "SQL Server > (localdb)\MSSQL.... > Databases > NotesDB > Tables"
+	our table "dbo.Notes. Remember to refresh view before start.
+
+(3) Seed database
+
+	This step will be done automaticaly by code after Run (F5) command (in notesContext.EnsureSeedDataForContext() in "Startup.cs" > Configure() function)
+
+
+
+
+### Test ###
+
+To check if all works use for example 'Postman'.
+
+(*) Read single note
+
+	GET http://localhost:63463/api/notes/1 
+	(no headers) 
+	(no body)
+
+
+(*) Read children notes
+
+	GET http://localhost:63463/api/notes/0/children 
+	(no headers) 
+	(no body)
+
+
+(*) Create note
+
+	POST http://localhost:63463/api/notes
+
+	(body: raw: "{ "parentId": "0", "title": "new tab" }")
+
+
+(*) Update title or content
+
+	PATCH http://localhost:63463/api/notes/1 
+	(headers: Content-Type = application/json) 
+	(body: raw: "[{ "op": "replace", "path": "/content", "value": "new value" }]")
+
+
+(*) Delete note
+
+	DELETE http://localhost:63463/api/notes/1 
+	(no headers)
+	(no body)
+
+
+
