@@ -35,4 +35,4 @@ Written in **.net Core** with **Visual Studio Community 2015**
 ## Database
 
 Before start database need to be created.  
-Details in HOT_TO_START.txt file.
+Details in HOW_TO_START.txt file.
