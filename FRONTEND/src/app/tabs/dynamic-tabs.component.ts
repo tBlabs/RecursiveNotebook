@@ -11,8 +11,15 @@ import { Component, OnInit } from '@angular/core';
 
     <tabs-list (onSelect)="Selected($event)"></tabs-list> 
 
-    <textarea *ngIf="selectedTab" [value]="selectedTab.content" (keyup)="content=$event.target.value"></textarea>
-    <button *ngIf="selectedTab" [disabled]="selectedTab.content==content" (click)="Save()" [innerHTML]="buttonText" class="btn btn-primary">Save</button>
+    <textarea *ngIf="selectedTab" 
+              [value]="selectedTab.content" 
+              (keyup)="content=$event.target.value"></textarea>
+
+    <button *ngIf="selectedTab" 
+            [disabled]="selectedTab.content==content" 
+            (click)="Save()" 
+            [innerHTML]="buttonText" 
+            class="btn btn-primary">Save</button>
     
     `,
     styles: [` textarea { width:98%; margin: 12px 1%; padding: 12px; border: 1px solid #ddd; height: 300px }`]
@@ -40,10 +47,11 @@ export class DynamicTabsComponent
     private Save(): void
     {
         this.buttonText = "Saving...";
-
+  this.selectedTab.content = this.content;
+      console.log(this.selectedTab);
+    
         this._tabsService.UpdateContent(this.selectedTab).subscribe((n) =>
         {
-            this.selectedTab.content = this.content;
             this.buttonText = "Save";
         });
     }

@@ -1,0 +1,365 @@
+2017-02-27T20:33:44.3532755+01:00  [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notes] AS [n])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END (6438bdd5)
+2017-02-27T20:33:45.3923639+01:00 0HL2V8U5O4F5C [INF] Request starting HTTP/1.1 GET http://localhost:63463/   (e5be5b71)
+2017-02-27T20:33:45.3923639+01:00 0HL2V8U5O4F5B [INF] Request starting HTTP/1.1 DEBUG http://localhost:63463/  0 (e5be5b71)
+2017-02-27T20:33:45.4978296+01:00 0HL2V8U5O4F5B [INF] Request finished in 110.2436ms 200  (15c52c40)
+2017-02-27T20:33:45.7991056+01:00 0HL2V8U5O4F5C [INF] Request finished in 438.1302ms 404 text/plain (15c52c40)
+2017-02-27T20:34:01.2837803+01:00 0HL2V8U5O4F5D [INF] Request starting HTTP/1.1 GET http://localhost:63463/api/notes/1   (e5be5b71)
+2017-02-27T20:34:01.4170892+01:00 0HL2V8U5O4F5D [INF] NotesController created (df7000d3)
+2017-02-27T20:34:01.5572232+01:00 0HL2V8U5O4F5D [INF] Executing action method "notes.api.Controllers.NotesController.GetSingleNote (notes.api)" with arguments (["1"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T20:34:01.8155336+01:00 0HL2V8U5O4F5D [INF] Executed DbCommand (84ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T20:34:01.9488322+01:00 0HL2V8U5O4F5D [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-02-27T20:34:02.1744214+01:00 0HL2V8U5O4F5D [INF] Executed action "notes.api.Controllers.NotesController.GetSingleNote (notes.api)" in 802.0653ms (afa2e885)
+2017-02-27T20:34:02.1783278+01:00 0HL2V8U5O4F5D [INF] Request finished in 894.2306ms 200 application/json; charset=utf-8 (15c52c40)
+2017-02-27T20:35:11.8007178+01:00 0HL2V8U5O4F5E [INF] Request starting HTTP/1.1 GET http://localhost:63463/api/notes/1   (e5be5b71)
+2017-02-27T20:35:11.8026655+01:00 0HL2V8U5O4F5E [INF] NotesController created (df7000d3)
+2017-02-27T20:35:11.8041308+01:00 0HL2V8U5O4F5E [INF] Executing action method "notes.api.Controllers.NotesController.GetSingleNote (notes.api)" with arguments (["1"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T20:35:11.8334331+01:00 0HL2V8U5O4F5E [INF] Executed DbCommand (20ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T20:35:11.8373339+01:00 0HL2V8U5O4F5E [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-02-27T20:35:11.8373339+01:00 0HL2V8U5O4F5E [INF] Executed action "notes.api.Controllers.NotesController.GetSingleNote (notes.api)" in 35.4039ms (afa2e885)
+2017-02-27T20:35:11.8373339+01:00 0HL2V8U5O4F5E [INF] Request finished in 37.0745ms 200 application/json; charset=utf-8 (15c52c40)
+2017-02-27T20:37:30.2965400+01:00  [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notes] AS [n])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END (6438bdd5)
+2017-02-27T20:37:31.3815159+01:00 0HL2V9093B19R [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 63 (e5be5b71)
+2017-02-27T20:37:31.3815159+01:00 0HL2V9093B19Q [INF] Request starting HTTP/1.1 GET http://localhost:63463/   (e5be5b71)
+2017-02-27T20:37:31.3815159+01:00 0HL2V9093B19P [INF] Request starting HTTP/1.1 DEBUG http://localhost:63463/  0 (e5be5b71)
+2017-02-27T20:37:31.4928471+01:00 0HL2V9093B19P [INF] Request finished in 114.7939ms 200  (15c52c40)
+2017-02-27T20:37:31.8112127+01:00 0HL2V9093B19Q [INF] Request finished in 461.5343ms 404 text/plain (15c52c40)
+2017-02-27T20:37:31.9689294+01:00 0HL2V9093B19R [INF] NotesController created (df7000d3)
+2017-02-27T20:37:32.4372012+01:00 0HL2V9093B19R [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T20:37:32.4396417+01:00 0HL2V9093B19R [INF] Partial update  (41ea45a5)
+2017-02-27T20:37:32.7282223+01:00 0HL2V9093B19R [INF] Executed DbCommand (82ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T20:37:32.9084019+01:00 0HL2V9093B19R [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T20:37:32.9196318+01:00 0HL2V9093B19R [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 996.0129ms (afa2e885)
+2017-02-27T20:37:32.9240321+01:00 0HL2V9093B19R [INF] Request finished in 1574.9512ms 204  (15c52c40)
+2017-02-27T20:48:03.2710843+01:00 0HL2V9093B19S [INF] Request starting HTTP/1.1 GET http://localhost:63463/api/notes/1 application/json  (e5be5b71)
+2017-02-27T20:48:03.2735262+01:00 0HL2V9093B19S [INF] NotesController created (df7000d3)
+2017-02-27T20:48:03.2847567+01:00 0HL2V9093B19S [INF] Executing action method "notes.api.Controllers.NotesController.GetSingleNote (notes.api)" with arguments (["1"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T20:48:03.4659141+01:00 0HL2V9093B19S [INF] Executed DbCommand (20ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T20:48:03.5137640+01:00 0HL2V9093B19S [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-02-27T20:48:03.5518515+01:00 0HL2V9093B19S [INF] Executed action "notes.api.Controllers.NotesController.GetSingleNote (notes.api)" in 279.1212ms (afa2e885)
+2017-02-27T20:48:03.5523396+01:00 0HL2V9093B19S [INF] Request finished in 281.1061ms 200 application/json; charset=utf-8 (15c52c40)
+2017-02-27T20:48:16.6419437+01:00 0HL2V9093B19T [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 63 (e5be5b71)
+2017-02-27T20:48:16.6438976+01:00 0HL2V9093B19T [INF] NotesController created (df7000d3)
+2017-02-27T20:48:16.6448742+01:00 0HL2V9093B19T [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T20:49:12.4501358+01:00 0HL2V9093B19T [INF] Partial update  (41ea45a5)
+2017-02-27T20:49:27.0265853+01:00 0HL2V9093B19T [INF] Executed DbCommand (25ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T20:50:08.9814276+01:00 0HL2V9093B19T [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T20:50:08.9814276+01:00 0HL2V9093B19T [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 112337.4811ms (afa2e885)
+2017-02-27T20:50:08.9814276+01:00 0HL2V9093B19T [INF] Request finished in 112339.6115ms 204  (15c52c40)
+2017-02-27T21:23:27.0841725+01:00 0HL2V9093B19U [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 72 (e5be5b71)
+2017-02-27T21:23:27.0880786+01:00 0HL2V9093B19U [INF] NotesController created (df7000d3)
+2017-02-27T21:23:27.0914967+01:00 0HL2V9093B19U [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T21:23:30.2990803+01:00 0HL2V9093B19U [INF] Partial update  (41ea45a5)
+2017-02-27T21:23:30.4983039+01:00 0HL2V9093B19U [INF] Executed DbCommand (20ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T21:23:30.6472313+01:00 0HL2V9093B19U [INF] Executed DbCommand (24ms) [Parameters=[@p1='?', @p0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Notes] SET [Content] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT; (6438bdd5)
+2017-02-27T21:23:30.6799527+01:00 0HL2V9093B19U [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T21:23:30.6799527+01:00 0HL2V9093B19U [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 3592.8049ms (afa2e885)
+2017-02-27T21:23:30.6799527+01:00 0HL2V9093B19U [INF] Request finished in 3623.6057ms 204  (15c52c40)
+2017-02-27T21:23:42.0942355+01:00 0HL2V9093B19V [INF] Request starting HTTP/1.1 GET http://localhost:63463/api/notes/1   (e5be5b71)
+2017-02-27T21:23:42.0947295+01:00 0HL2V9093B19V [INF] NotesController created (df7000d3)
+2017-02-27T21:23:42.0947295+01:00 0HL2V9093B19V [INF] Executing action method "notes.api.Controllers.NotesController.GetSingleNote (notes.api)" with arguments (["1"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T21:23:42.1162085+01:00 0HL2V9093B19V [INF] Executed DbCommand (20ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T21:23:42.1206037+01:00 0HL2V9093B19V [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-02-27T21:23:42.1206037+01:00 0HL2V9093B19V [INF] Executed action "notes.api.Controllers.NotesController.GetSingleNote (notes.api)" in 26.3838ms (afa2e885)
+2017-02-27T21:23:42.1210929+01:00 0HL2V9093B19V [INF] Request finished in 26.7268ms 200 application/json; charset=utf-8 (15c52c40)
+2017-02-27T21:24:39.1577771+01:00 0HL2V9093B1A0 [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 72 (e5be5b71)
+2017-02-27T21:24:39.1616849+01:00 0HL2V9093B1A0 [INF] NotesController created (df7000d3)
+2017-02-27T21:24:39.1621721+01:00 0HL2V9093B1A0 [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T21:24:39.1621721+01:00 0HL2V9093B1A0 [INF] Partial update  (41ea45a5)
+2017-02-27T21:24:39.1826809+01:00 0HL2V9093B1A0 [INF] Executed DbCommand (19ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T21:24:39.1841506+01:00 0HL2V9093B1A0 [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T21:24:39.1841506+01:00 0HL2V9093B1A0 [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 24.9051ms (afa2e885)
+2017-02-27T21:24:39.1846334+01:00 0HL2V9093B1A0 [INF] Request finished in 26.5634ms 204  (15c52c40)
+2017-02-27T21:25:47.8607137+01:00 0HL2V9093B1A1 [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 72 (e5be5b71)
+2017-02-27T21:25:47.8905002+01:00 0HL2V9093B1A1 [INF] NotesController created (df7000d3)
+2017-02-27T21:25:47.8909885+01:00 0HL2V9093B1A1 [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T21:25:47.8909885+01:00 0HL2V9093B1A1 [INF] Partial update  (41ea45a5)
+2017-02-27T21:25:47.9115000+01:00 0HL2V9093B1A1 [INF] Executed DbCommand (19ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T21:25:47.9134545+01:00 0HL2V9093B1A1 [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T21:25:47.9134545+01:00 0HL2V9093B1A1 [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 51.0391ms (afa2e885)
+2017-02-27T21:25:47.9134545+01:00 0HL2V9093B1A1 [INF] Request finished in 53.4397ms 204  (15c52c40)
+2017-02-27T21:33:25.7151329+01:00  [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notes] AS [n])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END (6438bdd5)
+2017-02-27T21:33:26.6121243+01:00 0HL2V9VH1A0E1 [INF] Request starting HTTP/1.1 DEBUG http://localhost:63463/  0 (e5be5b71)
+2017-02-27T21:33:26.6121243+01:00 0HL2V9VH1A0E2 [INF] Request starting HTTP/1.1 GET http://localhost:63463/   (e5be5b71)
+2017-02-27T21:33:26.7171063+01:00 0HL2V9VH1A0E1 [INF] Request finished in 111.4191ms 200  (15c52c40)
+2017-02-27T21:33:27.0193590+01:00 0HL2V9VH1A0E2 [INF] Request finished in 439.874ms 404 text/plain (15c52c40)
+2017-02-27T21:33:46.8161435+01:00 0HL2V9VH1A0E3 [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 72 (e5be5b71)
+2017-02-27T21:33:46.9411443+01:00 0HL2V9VH1A0E3 [INF] NotesController created (df7000d3)
+2017-02-27T21:33:47.3767011+01:00 0HL2V9VH1A0E3 [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T21:33:47.3796308+01:00 0HL2V9VH1A0E3 [INF] Partial update  (41ea45a5)
+2017-02-27T21:33:47.6520958+01:00 0HL2V9VH1A0E3 [INF] Executed DbCommand (75ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T21:33:47.8146978+01:00 0HL2V9VH1A0E3 [INF] Patches applayed (bd95a97a)
+2017-02-27T21:33:47.8308107+01:00 0HL2V9VH1A0E3 [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T21:33:47.8425304+01:00 0HL2V9VH1A0E3 [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 942.9366ms (afa2e885)
+2017-02-27T21:33:47.8469248+01:00 0HL2V9VH1A0E3 [INF] Request finished in 1030.7994ms 204  (15c52c40)
+2017-02-27T21:34:07.3723106+01:00 0HL2V9VH1A0E4 [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 70 (e5be5b71)
+2017-02-27T21:34:07.3762169+01:00 0HL2V9VH1A0E4 [INF] NotesController created (df7000d3)
+2017-02-27T21:34:07.3786597+01:00 0HL2V9VH1A0E4 [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T21:34:07.3786597+01:00 0HL2V9VH1A0E4 [INF] Partial update  (41ea45a5)
+2017-02-27T21:34:07.4069789+01:00 0HL2V9VH1A0E4 [INF] Executed DbCommand (20ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T21:34:07.5373530+01:00 0HL2V9VH1A0E4 [INF] Executed DbCommand (24ms) [Parameters=[@p1='?', @p0='?' (Size = 20)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Notes] SET [Title] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT; (6438bdd5)
+2017-02-27T21:34:07.5695859+01:00 0HL2V9VH1A0E4 [INF] Patches applayed (bd95a97a)
+2017-02-27T21:34:07.5695859+01:00 0HL2V9VH1A0E4 [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T21:34:07.5695859+01:00 0HL2V9VH1A0E4 [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 194.0243ms (afa2e885)
+2017-02-27T21:34:07.5700687+01:00 0HL2V9VH1A0E4 [INF] Request finished in 197.4717ms 204  (15c52c40)
+2017-02-27T21:34:10.1536163+01:00 0HL2V9VH1A0E5 [INF] Request starting HTTP/1.1 GET http://localhost:63463/api/notes/1   (e5be5b71)
+2017-02-27T21:34:10.1545957+01:00 0HL2V9VH1A0E5 [INF] NotesController created (df7000d3)
+2017-02-27T21:34:10.1550813+01:00 0HL2V9VH1A0E5 [INF] Executing action method "notes.api.Controllers.NotesController.GetSingleNote (notes.api)" with arguments (["1"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T21:34:10.1760781+01:00 0HL2V9VH1A0E5 [INF] Executed DbCommand (20ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T21:34:10.2019579+01:00 0HL2V9VH1A0E5 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-02-27T21:34:10.2390682+01:00 0HL2V9VH1A0E5 [INF] Executed action "notes.api.Controllers.NotesController.GetSingleNote (notes.api)" in 84.4917ms (afa2e885)
+2017-02-27T21:34:10.2395557+01:00 0HL2V9VH1A0E5 [INF] Request finished in 85.6544ms 200 application/json; charset=utf-8 (15c52c40)
+2017-02-27T21:47:16.7371248+01:00  [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notes] AS [n])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END (6438bdd5)
+2017-02-27T21:47:17.5862620+01:00 0HL2VA78M369U [INF] Request starting HTTP/1.1 DEBUG http://localhost:63463/  0 (e5be5b71)
+2017-02-27T21:47:17.5862620+01:00 0HL2VA78M369V [INF] Request starting HTTP/1.1 GET http://localhost:63463/   (e5be5b71)
+2017-02-27T21:47:17.6873391+01:00 0HL2VA78M369U [INF] Request finished in 106.1998ms 200  (15c52c40)
+2017-02-27T21:47:17.9934965+01:00 0HL2VA78M369V [INF] Request finished in 438.5604ms 404 text/plain (15c52c40)
+2017-02-27T22:06:06.8345165+01:00  [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notes] AS [n])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END (6438bdd5)
+2017-02-27T22:06:07.7549444+01:00 0HL2VAHPG79PM [INF] Request starting HTTP/1.1 GET http://localhost:63463/   (e5be5b71)
+2017-02-27T22:06:07.7549444+01:00 0HL2VAHPG79PL [INF] Request starting HTTP/1.1 DEBUG http://localhost:63463/  0 (e5be5b71)
+2017-02-27T22:06:07.8701808+01:00 0HL2VAHPG79PL [INF] Request finished in 121.2718ms 200  (15c52c40)
+2017-02-27T22:06:08.1709693+01:00 0HL2VAHPG79PM [INF] Request finished in 450.8028ms 404 text/plain (15c52c40)
+2017-02-27T22:06:47.0559765+01:00 0HL2VAHPG79PN [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 58 (e5be5b71)
+2017-02-27T22:06:47.1814662+01:00 0HL2VAHPG79PN [INF] NotesController created (df7000d3)
+2017-02-27T22:06:47.4568624+01:00 0HL2VAHPG79PN [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", ""]) - ModelState is Invalid (ba7f4ac2)
+2017-02-27T22:06:47.4593040+01:00 0HL2VAHPG79PN [INF] Partial update  (41ea45a5)
+2017-02-27T22:06:47.4593040+01:00 0HL2VAHPG79PN [ERR] Invalid patch format (b8690943)
+2017-02-27T22:06:47.4905605+01:00 0HL2VAHPG79PN [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-02-27T22:06:47.5105742+01:00 0HL2VAHPG79PN [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 369.9333ms (afa2e885)
+2017-02-27T22:06:47.5125331+01:00 0HL2VAHPG79PN [INF] Request finished in 456.6608ms 400 text/plain; charset=utf-8 (15c52c40)
+2017-02-27T22:07:45.4066077+01:00 0HL2VAHPG79PO [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 6 (e5be5b71)
+2017-02-27T22:07:45.4349291+01:00 0HL2VAHPG79PO [INF] NotesController created (df7000d3)
+2017-02-27T22:07:45.4437174+01:00 0HL2VAHPG79PO [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "asdf"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T22:07:45.4437174+01:00 0HL2VAHPG79PO [INF] Partial update  (41ea45a5)
+2017-02-27T22:07:45.6756597+01:00 0HL2VAHPG79PO [INF] Executed DbCommand (83ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T22:07:45.8192143+01:00 0HL2VAHPG79PO [INF] Patches applayed (bd95a97a)
+2017-02-27T22:07:45.8226312+01:00 0HL2VAHPG79PO [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T22:07:45.8231204+01:00 0HL2VAHPG79PO [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 389.0181ms (afa2e885)
+2017-02-27T22:07:45.8255668+01:00 0HL2VAHPG79PO [INF] Request finished in 419.2898ms 204  (15c52c40)
+2017-02-27T22:08:53.9757660+01:00  [INF] Executed DbCommand (462ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notes] AS [n])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END (6438bdd5)
+2017-02-27T22:08:54.8195300+01:00 0HL2VAJB9FBSJ [INF] Request starting HTTP/1.1 GET http://localhost:63463/   (e5be5b71)
+2017-02-27T22:08:54.8195300+01:00 0HL2VAJB9FBSI [INF] Request starting HTTP/1.1 DEBUG http://localhost:63463/  0 (e5be5b71)
+2017-02-27T22:08:54.9220771+01:00 0HL2VAJB9FBSI [INF] Request finished in 105.4706ms 200  (15c52c40)
+2017-02-27T22:08:55.2047923+01:00 0HL2VAJB9FBSJ [INF] Request finished in 416.0352ms 404 text/plain (15c52c40)
+2017-02-27T22:09:22.8054025+01:00 0HL2VAJB9FBSK [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 6 (e5be5b71)
+2017-02-27T22:09:22.9294272+01:00 0HL2VAJB9FBSK [INF] NotesController created (df7000d3)
+2017-02-27T22:09:23.1975048+01:00 0HL2VAJB9FBSK [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "asdf"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T22:09:23.2004312+01:00 0HL2VAJB9FBSK [INF] Partial update .1."asdf". (ad0b6721)
+2017-02-27T22:09:23.4416451+01:00 0HL2VAJB9FBSK [INF] Executed DbCommand (85ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T22:09:23.5935032+01:00 0HL2VAJB9FBSK [INF] Patches applayed (bd95a97a)
+2017-02-27T22:09:23.6110825+01:00 0HL2VAJB9FBSK [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T22:09:23.6267071+01:00 0HL2VAJB9FBSK [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 737.8091ms (afa2e885)
+2017-02-27T22:09:23.6311069+01:00 0HL2VAJB9FBSK [INF] Request finished in 825.8094ms 204  (15c52c40)
+2017-02-27T22:10:33.5123289+01:00  [INF] Executed DbCommand (69ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notes] AS [n])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END (6438bdd5)
+2017-02-27T22:10:34.3600028+01:00 0HL2VAK8UOMQ7 [INF] Request starting HTTP/1.1 GET http://localhost:63463/   (e5be5b71)
+2017-02-27T22:10:34.3600028+01:00 0HL2VAK8UOMQ6 [INF] Request starting HTTP/1.1 DEBUG http://localhost:63463/  0 (e5be5b71)
+2017-02-27T22:10:34.4610783+01:00 0HL2VAK8UOMQ6 [INF] Request finished in 106.8049ms 200  (15c52c40)
+2017-02-27T22:10:34.7623545+01:00 0HL2VAK8UOMQ7 [INF] Request finished in 433.3098ms 404 text/plain (15c52c40)
+2017-02-27T22:10:39.6491689+01:00 0HL2VAK8UOMQ8 [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 6 (e5be5b71)
+2017-02-27T22:10:39.7766136+01:00 0HL2VAK8UOMQ8 [INF] NotesController created (df7000d3)
+2017-02-27T22:10:40.1257412+01:00 0HL2VAK8UOMQ8 [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", ""]) - ModelState is Invalid (ba7f4ac2)
+2017-02-27T22:10:40.1286712+01:00 0HL2VAK8UOMQ8 [INF] Partial update of #1. Patches: null (30b5833a)
+2017-02-27T22:10:40.1291593+01:00 0HL2VAK8UOMQ8 [ERR] Invalid patch format (b8690943)
+2017-02-27T22:10:40.1604171+01:00 0HL2VAK8UOMQ8 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-02-27T22:10:40.1804292+01:00 0HL2VAK8UOMQ8 [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 445.9821ms (afa2e885)
+2017-02-27T22:10:40.1828761+01:00 0HL2VAK8UOMQ8 [INF] Request finished in 533.4225ms 400 text/plain; charset=utf-8 (15c52c40)
+2017-02-27T22:11:45.9326717+01:00 0HL2VAK8UOMQ9 [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 58 (e5be5b71)
+2017-02-27T22:11:45.9351128+01:00 0HL2VAK8UOMQ9 [INF] NotesController created (df7000d3)
+2017-02-27T22:11:46.0454662+01:00 0HL2VAK8UOMQ9 [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T22:11:46.0454662+01:00 0HL2VAK8UOMQ9 [INF] Partial update of #1. Patches: "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]" (30b5833a)
+2017-02-27T22:11:46.3023075+01:00 0HL2VAK8UOMQ9 [INF] Executed DbCommand (78ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T22:11:46.5943058+01:00 0HL2VAK8UOMQ9 [INF] Executed DbCommand (25ms) [Parameters=[@p1='?', @p0='?' (Size = 20)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Notes] SET [Title] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT; (6438bdd5)
+2017-02-27T22:11:46.6323914+01:00 0HL2VAK8UOMQ9 [INF] Patches applayed (bd95a97a)
+2017-02-27T22:11:46.6358102+01:00 0HL2VAK8UOMQ9 [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T22:11:46.6362983+01:00 0HL2VAK8UOMQ9 [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 701.5503ms (afa2e885)
+2017-02-27T22:11:46.6382522+01:00 0HL2VAK8UOMQ9 [INF] Request finished in 705.6324ms 204  (15c52c40)
+2017-02-27T22:12:44.0358373+01:00  [INF] Executed DbCommand (60ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notes] AS [n])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END (6438bdd5)
+2017-02-27T22:12:45.1125200+01:00 0HL2VALFTN6R9 [INF] Request starting HTTP/1.1 GET http://localhost:63463/   (e5be5b71)
+2017-02-27T22:12:45.1125200+01:00 0HL2VALFTN6R8 [INF] Request starting HTTP/1.1 DEBUG http://localhost:63463/  0 (e5be5b71)
+2017-02-27T22:12:45.2238487+01:00 0HL2VALFTN6R8 [INF] Request finished in 111.6239ms 200  (15c52c40)
+2017-02-27T22:12:45.5300124+01:00 0HL2VALFTN6R9 [INF] Request finished in 450.184ms 404 text/plain (15c52c40)
+2017-02-27T22:12:46.0124386+01:00 0HL2VALFTN6RA [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 58 (e5be5b71)
+2017-02-27T22:12:46.1393935+01:00 0HL2VALFTN6RA [INF] NotesController created (df7000d3)
+2017-02-27T22:12:46.5793436+01:00 0HL2VALFTN6RA [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T22:12:46.5827675+01:00 0HL2VALFTN6RA [INF] Partial update of #1. Patches: "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]" (30b5833a)
+2017-02-27T22:12:46.8205650+01:00 0HL2VALFTN6RA [INF] Executed DbCommand (74ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T22:12:46.9890197+01:00 0HL2VALFTN6RA [INF] Patches applayed (bd95a97a)
+2017-02-27T22:12:47.0051340+01:00 0HL2VALFTN6RA [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T22:12:47.0178289+01:00 0HL2VALFTN6RA [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 918.905ms (afa2e885)
+2017-02-27T22:12:47.0251541+01:00 0HL2VALFTN6RA [INF] Request finished in 1012.3987ms 204  (15c52c40)
+2017-02-27T22:41:41.8254517+01:00 0HL2VALFTN6RB [INF] Request starting HTTP/1.1 PATCH http://localhost:63463/api/notes/1 application/json 58 (e5be5b71)
+2017-02-27T22:41:41.8371705+01:00 0HL2VALFTN6RB [INF] NotesController created (df7000d3)
+2017-02-27T22:41:41.8440121+01:00 0HL2VALFTN6RB [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T22:41:41.8440121+01:00 0HL2VALFTN6RB [INF] Partial update of #1. Patches: "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]" (30b5833a)
+2017-02-27T22:41:42.0525076+01:00 0HL2VALFTN6RB [INF] Executed DbCommand (21ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T22:41:42.0622734+01:00 0HL2VALFTN6RB [INF] Patches applayed (bd95a97a)
+2017-02-27T22:41:42.0627614+01:00 0HL2VALFTN6RB [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T22:41:42.0627614+01:00 0HL2VALFTN6RB [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 231.8199ms (afa2e885)
+2017-02-27T22:41:42.0627614+01:00 0HL2VALFTN6RB [INF] Request finished in 238.6744ms 204  (15c52c40)
+2017-02-27T23:27:41.8566123+01:00  [INF] Executed DbCommand (62ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Notes] AS [n])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END (6438bdd5)
+2017-02-27T23:27:42.9650328+01:00 0HL2VBVCCIRO9 [INF] Request starting HTTP/1.1 GET http://localhost:63463/   (e5be5b71)
+2017-02-27T23:27:42.9650328+01:00 0HL2VBVCCIRO7 [INF] Request starting HTTP/1.1 DEBUG http://localhost:63463/  0 (e5be5b71)
+2017-02-27T23:27:42.9650328+01:00 0HL2VBVCCIRO8 [INF] Request starting HTTP/1.1 POST http://localhost:63463/api/notes/1 application/json 58 (e5be5b71)
+2017-02-27T23:27:43.0700090+01:00 0HL2VBVCCIRO7 [INF] Request finished in 108.8509ms 200  (15c52c40)
+2017-02-27T23:27:43.3986298+01:00 0HL2VBVCCIRO9 [INF] Request finished in 464.7112ms 404 text/plain (15c52c40)
+2017-02-27T23:27:43.5436513+01:00 0HL2VBVCCIRO8 [INF] NotesController created (df7000d3)
+2017-02-27T23:27:44.0099701+01:00 0HL2VBVCCIRO8 [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T23:27:44.0138756+01:00 0HL2VBVCCIRO8 [INF] Partial update of #1. Patches: "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]" (30b5833a)
+2017-02-27T23:27:44.2687653+01:00 0HL2VBVCCIRO8 [INF] Executed DbCommand (81ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T23:27:44.4318578+01:00 0HL2VBVCCIRO8 [INF] Patches applayed (bd95a97a)
+2017-02-27T23:27:44.4484546+01:00 0HL2VBVCCIRO8 [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T23:27:44.4596848+01:00 0HL2VBVCCIRO8 [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 964.9366ms (afa2e885)
+2017-02-27T23:27:44.4640795+01:00 0HL2VBVCCIRO8 [INF] Request finished in 1530.4355ms 204  (15c52c40)
+2017-02-27T23:28:09.9919304+01:00 0HL2VBVCCIROA [INF] Request starting HTTP/1.1 POST http://localhost:63463/api/notes/1 application/json 70 (e5be5b71)
+2017-02-27T23:28:09.9938770+01:00 0HL2VBVCCIROA [INF] NotesController created (df7000d3)
+2017-02-27T23:28:09.9987600+01:00 0HL2VBVCCIROA [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T23:28:09.9987600+01:00 0HL2VBVCCIROA [INF] Partial update of #1. Patches: "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]" (30b5833a)
+2017-02-27T23:28:10.0275690+01:00 0HL2VBVCCIROA [INF] Executed DbCommand (20ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T23:28:10.2082366+01:00 0HL2VBVCCIROA [INF] Executed DbCommand (23ms) [Parameters=[@p1='?', @p0='?' (Size = 20)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Notes] SET [Title] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT; (6438bdd5)
+2017-02-27T23:28:10.2409520+01:00 0HL2VBVCCIROA [INF] Patches applayed (bd95a97a)
+2017-02-27T23:28:10.2409520+01:00 0HL2VBVCCIROA [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T23:28:10.2409520+01:00 0HL2VBVCCIROA [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 247.9032ms (afa2e885)
+2017-02-27T23:28:10.2414406+01:00 0HL2VBVCCIROA [INF] Request finished in 249.6334ms 204  (15c52c40)
+2017-02-27T23:28:25.4629008+01:00 0HL2VBVCCIROB [INF] Request starting HTTP/1.1 POST http://localhost:63463/api/notes/1 application/json 71 (e5be5b71)
+2017-02-27T23:28:25.4648603+01:00 0HL2VBVCCIROB [INF] NotesController created (df7000d3)
+2017-02-27T23:28:25.4653486+01:00 0HL2VBVCCIROB [INF] Executing action method "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" with arguments (["1", "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]"]) - ModelState is Valid (ba7f4ac2)
+2017-02-27T23:28:25.4653486+01:00 0HL2VBVCCIROB [INF] Partial update of #1. Patches: "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1[notes.api.Models.NoteForUpdateDto]" (30b5833a)
+2017-02-27T23:28:25.4858560+01:00 0HL2VBVCCIROB [INF] Executed DbCommand (19ms) [Parameters=[@__id_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[Content], [n].[ParentId], [n].[Title]
+FROM [Notes] AS [n]
+WHERE [n].[Id] = @__id_0 (6438bdd5)
+2017-02-27T23:28:25.5254021+01:00 0HL2VBVCCIROB [INF] Executed DbCommand (19ms) [Parameters=[@p1='?', @p0='?' (Size = 20)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Notes] SET [Title] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT; (6438bdd5)
+2017-02-27T23:28:25.5693507+01:00 0HL2VBVCCIROB [INF] Patches applayed (bd95a97a)
+2017-02-27T23:28:25.5693507+01:00 0HL2VBVCCIROB [INF] Executing HttpStatusCodeResult, setting HTTP status code 204 (e28ccfae)
+2017-02-27T23:28:25.5703257+01:00 0HL2VBVCCIROB [INF] Executed action "notes.api.Controllers.NotesController.PartiallyUpdateNote (notes.api)" in 105.653ms (afa2e885)
+2017-02-27T23:28:25.5703257+01:00 0HL2VBVCCIROB [INF] Request finished in 107.3197ms 204  (15c52c40)

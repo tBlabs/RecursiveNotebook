@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using notes.api.Services;
 using AutoMapper;
 using notes.api.Entities;
+using Microsoft.Extensions.Logging;
 
 namespace notes.api.Controllers
 {
@@ -15,10 +16,14 @@ namespace notes.api.Controllers
     public class NotesController : Controller
     {
         private INotesRepository _notes;
+        readonly ILogger<NotesController> _log;
 
-        public NotesController(INotesRepository notes)
+        public NotesController(INotesRepository notes, ILogger<NotesController> log)
         {
             this._notes = notes;
+            this._log = log;
+
+            _log.LogInformation("NotesController created");
         }
 
 
@@ -78,18 +83,21 @@ namespace notes.api.Controllers
         /// [{ "op": "replace",	"path": "/title", "value": "new value" }]
         /// </param>
         /// <returns></returns>
-        [HttpPatch("{id}")]
+        [HttpPost("{id}")] // HttpPatch DOES NOT WORK AT SERVER!!!
         public IActionResult PartiallyUpdateNote(int id, [FromBody] JsonPatchDocument<NoteForUpdateDto> patches)
         {
+            _log.LogInformation("Partial update of #{0}. Patches: {1}", id, patches);
             // Patches check
 
             if (patches == null)
             {
+                _log.LogError("Invalid patch format");
                 return BadRequest("Invalid patch format?");
             }
 
             if (ModelState.IsValid == false) // Validation of patches object! Not all NoteForUpdateDto!
             {
+                _log.LogError("Invalid patch state");
                 return BadRequest(ModelState);
             }
 
@@ -100,6 +108,7 @@ namespace notes.api.Controllers
 
             if (note == null)
             {
+                _log.LogError("Note to patch not found");
                 return NotFound();
             }
 
@@ -113,6 +122,7 @@ namespace notes.api.Controllers
             // Validation
             if (ModelState.IsValid == false)
             {
+                _log.LogError("NoteForUpdateDto not valid after patches applay");
                 return BadRequest(ModelState);
             }
 
@@ -120,6 +130,7 @@ namespace notes.api.Controllers
 
             if (ModelState.IsValid == false)
             {
+                _log.LogError("Model not valid");
                 return BadRequest(ModelState);
             }
 
@@ -127,9 +138,11 @@ namespace notes.api.Controllers
 
             if (_notes.Save() == false)
             {
+                _log.LogError("Can not save data");
                 return StatusCode(500, "Can not save data.");
             }
 
+            _log.LogInformation("Patches applayed");
             return NoContent();
         }
 

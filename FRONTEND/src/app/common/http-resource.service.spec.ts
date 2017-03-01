@@ -1,14 +1,18 @@
 import { Observable } from 'rxjs/Rx';
 import { TestBed, async, inject } from '@angular/core/testing';
 import { HttpResourceService } from './http-resource.service';
-import { Http } from '@angular/http';
-import { HttpModule, RequestMethod } from '@angular/http';
-import { MockBackend, MockConnection } from "@angular/http/testing";
-import { BaseRequestOptions, Response, ResponseOptions } from "@angular/http";
+import { Http, HttpModule, RequestMethod } from '@angular/http';
+import { MockBackend, MockConnection } from '@angular/http/testing';
+import { BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
+import { MockResponseHelper } from './mock-backend';
+import { Fault } from './../testing/utils';
 
 describe('HttpResourceService<>', () =>
 {
-  const API_URL = 'api/notes';
+  const API_URL = 'api/resource';
+  let _httpResource: HttpResourceService<any> = null;
+  let _mockBackend: MockBackend = null;
+  let _mockResponseHelper: MockResponseHelper = null;
 
   beforeEach(() =>
   {
@@ -30,42 +34,59 @@ describe('HttpResourceService<>', () =>
           }
         ]
       });
-  });//  beforeEach
+  }); // beforeEach
 
-  it('ReadMany test', inject([HttpResourceService, MockBackend], (httpResource: HttpResourceService<any>, mockBackend: MockBackend) =>
+  beforeEach(inject([HttpResourceService, MockBackend], (httpResource: HttpResourceService<any>, mockBackend: MockBackend) =>
   {
-    httpResource.SetResourceUrl(API_URL);
-    let readManyUrlAppendix = "123/all";
+    _httpResource = httpResource;
+    _mockBackend = mockBackend;
 
-    mockBackend.connections.subscribe((connection: MockConnection) =>
+    _httpResource.SetResourceUrl(API_URL);
+    _mockResponseHelper = new MockResponseHelper(_mockBackend);
+  }));
+
+  describe('ReadMany()', () =>
+  {
+    it('should return single object', () =>
     {
-      expect(connection.request.method).toBe(RequestMethod.Get, 'Invalid request method');
-      expect(connection.request.url).toBe(API_URL + '/' + readManyUrlAppendix);
+      const EXPECTED_RESPOND = [{ foo: "bar" }];
 
-      if (connection.request.url == API_URL + '/' + readManyUrlAppendix)
+      _mockResponseHelper.Config({
+        request: { method: RequestMethod.Get, url: API_URL + '/123' }, // Tested function (one of HttpRequest method) should hit backend connection with such request
+        respond: { status: 200, body: EXPECTED_RESPOND } // This is the answer from backend connection
+      });
+
+      spyOn(_httpResource, 'ReadMany').and.callThrough();
+
+      _httpResource.ReadMany('123').subscribe(ret =>
       {
-        connection.mockRespond(new Response(new ResponseOptions(
-          {
-            body: JSON.stringify(
-              [
-                { foo: "bar" },
-                { foo: "bar2" },
-              ]),
-            status: 200
-          }
-          )));
-      }
+        expect(ret).toEqual(EXPECTED_RESPOND);
+      });
+
+      expect(_httpResource.ReadMany).toHaveBeenCalled();
     });
 
-    httpResource.ReadMany("123/all").subscribe(arr =>
-    { 
-      expect(arr.length).toBe(2);
-      expect(arr[0]).toEqual({ foo: "bar" });
-      expect(arr[1]).toEqual({ foo: "bar2" });
-    },
-    (e) => console.log("[httpResource.ReadMany] " + e)
-    );
+    it('should return error on non-existing collection', () =>
+    {
+      _mockResponseHelper.Config({
+        request: { method: RequestMethod.Get, url: API_URL + '/666' }, // Tested function (one of HttpRequest method) should hit backend connection with such request
+        respond: { status: 404, body: null } // This is the answer from backend connection
+      });
 
-  })); // it
+      spyOn(_httpResource, 'ReadMany').and.callThrough();
+
+      _httpResource.ReadMany('666').subscribe(ret =>
+      {
+        Fault(); // this should never happend!
+      },
+      (err)=>
+      { 
+        expect(err).toBeDefined();
+      });
+
+      expect(_httpResource.ReadMany).toHaveBeenCalled();
+    });
+
+  }); //  describe('ReadMany()'...
 
 }); // describe

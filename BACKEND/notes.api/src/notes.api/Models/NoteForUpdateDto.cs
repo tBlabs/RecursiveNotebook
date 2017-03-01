@@ -9,8 +9,7 @@ namespace notes.api.Models
     public class NoteForUpdateDto
     {
         public int ParentId { get; set; }
-
-        [Required()]
+     
         [MaxLength(20)]
         public string Title { get; set; }
 

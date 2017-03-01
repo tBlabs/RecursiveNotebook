@@ -9,7 +9,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TabsService
 {
-    private dataSource = 'http://localhost:63463/api/notes';
+   // private dataSource = 'http://localhost:63463/api/nddddotes';
+    private dataSource = 'http://tomasz.look24.net/api/notes';
 
     constructor(private _httpResource: HttpResourceService<Tab>)
     {

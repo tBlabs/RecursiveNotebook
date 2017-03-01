@@ -19,8 +19,6 @@ namespace notes.api.Services
         {         
             var list = _context.Notes.Where(n => n.ParentId == parentId).ToList();
 
-            // if (list.Count == 0) return null;
-            // else 
             return list;         
         }
 
@@ -36,14 +34,13 @@ namespace notes.api.Services
         {
             return _context.Notes.Where(n => n.Id == id).FirstOrDefault();
         }
+ 
 
-
-
-        List<int> itemsToDelete = new List<int>();
+        List<int> itemsToDelete = new List<int>(); // TODO: This should be Note's list
 
         private List<int> FindChildren(int parentId)
         {
-            var rec = _context.Notes.Where(n => n.ParentId == parentId).Select(i => i.Id).ToList();
+            var rec = _context.Notes.Where(n => n.ParentId == parentId).Select(i => i.Id);
             //var rec = from x in _context.Notes
             //          where x.ParentId == parentId
             //          select x.Id;
@@ -64,24 +61,26 @@ namespace notes.api.Services
 
         public bool DeleteNote(int id)
         {
-            //   var notes = _context.Notes.Where(n => n.Id == id).ToList();
-
-            //if (notes.Count > 0)
-            //{
-            //    _context.Notes.RemoveRange(notes);
-            //    return Save();
-            //}
             itemsToDelete.Clear();
-            FindAllChildren(id);
 
-            if (itemsToDelete.Count > 0)
+            if (GetSingleNote(id) != null)
             {
-                foreach (int i in itemsToDelete)
+                FindAllChildren(id);
+
+                if (itemsToDelete.Count > 0)
                 {
-                    var noteToDelete = _context.Notes.Where(n => n.Id == i).Single();
-                    _context.Notes.Remove(noteToDelete);
+                    foreach (int i in itemsToDelete)
+                    {
+                        var noteToDelete = GetSingleNote(i); 
+
+                        if (noteToDelete != null)
+                        {
+                            _context.Notes.Remove(noteToDelete);
+                        }
+                    }
+
+                    return Save();
                 }
-                return Save();
             }
 
             return false;

@@ -10,8 +10,8 @@ namespace notes.api.Entities
     {
         public NotesDbContext(DbContextOptions<NotesDbContext> options) : base(options)
         {
-          //  Database.Migrate();
-            Database.EnsureCreated();
+            //Database.Migrate();
+            //Database.EnsureCreated();
         }
 
         public DbSet<Note> Notes { get; set; } 

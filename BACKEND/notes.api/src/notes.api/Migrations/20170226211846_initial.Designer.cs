@@ -8,7 +8,7 @@ using notes.api.Entities;
 namespace notes.api.Migrations
 {
     [DbContext(typeof(NotesDbContext))]
-    [Migration("20170224214258_initial")]
+    [Migration("20170226211846_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

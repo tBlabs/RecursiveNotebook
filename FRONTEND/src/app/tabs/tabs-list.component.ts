@@ -85,7 +85,7 @@ export class TabsListComponent implements OnInit, OnChanges
     {
         if (this.selectedTab != null)
         {
-            this.onSelect.emit(this.parentTab); 
+            this.onSelect.emit(this.parentTab);
 
             this.selectedTab = null;
         }
@@ -103,12 +103,12 @@ export class TabsListComponent implements OnInit, OnChanges
         }
     }
 
-    private LoadTabs(parentId: Tab): void
+    private LoadTabs(parentTab: Tab): void
     {
         this.isLoading = true;
         this.tabs = [];
 
-        this.tabsService.GetChildren(parentId ? parentId.id : 0)
+        this.tabsService.GetChildren((parentTab!=null) ? parentTab.id : 0)
             .finally(() =>
             {
                 this.isLoading = false;
@@ -116,6 +116,10 @@ export class TabsListComponent implements OnInit, OnChanges
             .subscribe((tabs: Tab[]) => 
             {
                 this.tabs = tabs;
+            },
+            (err) =>
+            {
+                alert("Can not get children! Error: " + err);
             });
     }
 
@@ -128,6 +132,10 @@ export class TabsListComponent implements OnInit, OnChanges
                 this.tabs.push(newTab);
 
                 this.Select(newTab);
+            },
+            (err) =>
+            {
+                alert("Can not add new tab! Error: " + err);
             });
         }
     }
@@ -137,6 +145,10 @@ export class TabsListComponent implements OnInit, OnChanges
         this.tabsService.UpdateTitle(tab, newTabTitle).subscribe(() => 
         {
             tab.title = newTabTitle;
+        },
+        (err) =>
+        {
+            alert("Can not edit tab title! Error: " + err);
         });
     }
 
@@ -150,6 +162,10 @@ export class TabsListComponent implements OnInit, OnChanges
             {
                 this.tabs.splice(this.tabs.indexOf(tab), 1);
                 this.SelectContentTab();
+            },
+            (err) =>
+            {
+                alert("Can not delete tab! Error: " + err);
             });
         }
     }

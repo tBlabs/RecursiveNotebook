@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using notes.api.Entities;
 using Microsoft.EntityFrameworkCore;
 using notes.api.Services;
+using System.IO;
 
 namespace notes.api
 {
@@ -16,8 +17,9 @@ namespace notes.api
         {
             services.AddCors();
             services.AddMvc();
-     
-            string connectionString = @"Server=(localdb)\mssqllocaldb;Database=NotesDB;Trusted_Connection=True;";
+
+            // string connectionString = @"Server=(localdb)\mssqllocaldb;Database=NotesDB;Trusted_Connection=True;";
+            string connectionString = File.ReadAllText("_priv/_DATABASE_CONNECTION_STRING.txt"); // _DATABASE_CONNECTION_STRING.txt is excluded from Version Control
             services.AddDbContext<NotesDbContext>(o => o.UseSqlServer(connectionString));
 
             services.AddScoped<INotesRepository, NotesRepository>();
@@ -26,14 +28,16 @@ namespace notes.api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, NotesDbContext notesContext)
         {
-            loggerFactory.AddConsole();
-
+            loggerFactory.AddFile("logs/app-{Date}.txt");
+                
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             else
             {
+                loggerFactory.AddConsole();
+
                 app.UseExceptionHandler();
             }
 

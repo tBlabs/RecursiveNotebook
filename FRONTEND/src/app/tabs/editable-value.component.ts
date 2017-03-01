@@ -4,7 +4,7 @@ import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core
 
 @Component({
     selector: 'editable-value',
-    template: 
+    template:
     /*
         Warnings:
         (1) I think (!) that <a> tags styles are ignored by Angular in template, that's why we need to use something other here
@@ -12,14 +12,13 @@ import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core
               - or -
             We need to change input height to smaller
     */
-    `
-       
+    `      
     <span *ngIf="!edit"  
-       class="value-label"
-       (dblclick)="Edit()">{{ value }}</span>                                 
+           class="value-label"
+          (dblclick)="Edit()">{{ value }}</span>                                 
 
     <span *ngIf="edit" 
-       class="value-edit">
+           class="value-edit">
         <input type="text"
                #thisInput 
                focus="true"
@@ -30,7 +29,7 @@ import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core
                (keydown.esc)="Abort()">
     </span>         
     `,
-    styles: 
+    styles:
     [`
         input { height: 20px; border: 1px solid #aaa; }
     `]
@@ -54,7 +53,7 @@ export class EditableValueComponent
     }
 
     private OnEnterPress(value: string)
-    {    
+    {
         if (value != "") 
         {
             if (this.value != value)
@@ -62,7 +61,7 @@ export class EditableValueComponent
                 this.value = value;
                 this.edited = true;
 
-                this.onChange.emit(this.value);              
+                this.onChange.emit(this.value);
             }
         }
         else
