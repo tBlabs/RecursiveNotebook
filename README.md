@@ -4,8 +4,13 @@ Recursive Notebook written in Angular 2 and asp.net Core
 *This is my first app in these technologies...  
 This project is not complete but works.*
 
+Demo:
+
+www.rBook.specteam.pl
+
 You can:
 - [x] add/edit/remove notes from database
+- [x] do fast deploy and publish with proper batch scripts
 
 You can't (future features):
 - [ ] do authentication
