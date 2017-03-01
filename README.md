@@ -1,8 +1,8 @@
-# RecursiveNotebook
-Recursive Notebook written in Angular 2 and asp.net Core
+# Recursive Notebook
+Recursive Notebook is written in **Angular 2** and **ASP.NET Core**
 
 *This is my first app in these technologies...  
-This project is not complete but works.*
+This project is unfinished but works.*
 
 Demo:
 
@@ -30,6 +30,9 @@ And then open browser at http://localhost:4200/tabs
 
 ## Test
 > ng test
+
+## Deploy
+Run _DEPLOY.bat (but for that "_priv/_FTP_CONNECTION_CONFIG.bat" is need which is excluded from Version Control)
 
 ---------------------------------------------------------
 
